@@ -11,8 +11,8 @@
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
  
 String apiKey = "PAJ1SOYRB4PRDEIA"; // Enter your Write API key from ThingSpeak
-const char *ssid = "wifiname";     // replace with your wifi ssid and wpa2 key
-const char *pass = "wifipassword";
+const char *ssid = "WiFiCJP-Alumnos";     // replace with your wifi ssid and wpa2 key
+const char *pass = "cjpalumnos2021";
 const char* server = "api.thingspeak.com";
  
 WiFiClient client;
@@ -21,22 +21,11 @@ WiFiClient client;
 void setup()
 {
   Serial.begin(115200);
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3C); //initialize with the I2C addr 0x3C (128x64)
-  display.clearDisplay();
   delay(10);
  
   Serial.println("Connecting to ");
   Serial.println(ssid);
-  
-  display.clearDisplay();
-  display.setCursor(0,0);  
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
-  display.println("Connecting to ");
-  display.setTextSize(2);
-  display.print(ssid);
-  display.display();
-  
+    
   WiFi.begin(ssid, pass);
  
   while (WiFi.status() != WL_CONNECTED)
@@ -47,13 +36,6 @@ void setup()
     Serial.println("");
     Serial.println("WiFi connected");
     
-    display.clearDisplay();
-    display.setCursor(0,0);  
-    display.setTextSize(1);
-    display.setTextColor(WHITE);
-    display.print("WiFi connected");
-    display.display();
-    delay(4000);
 }
  
  
